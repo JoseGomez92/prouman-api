@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv'
+import InternalApplicationError from '../domain/error/InternalApplicationError'
 
 export default class Config {
   readonly server: { port: number }
@@ -13,7 +14,7 @@ export default class Config {
   }
 
   private readServer() {
-    if (!process.env.SERVER_PORT) throw new Error('Server environment variable is not defined')
+    if (!process.env.SERVER_PORT) throw new InternalApplicationError('<SERVER_PORT> environment variable is not defined')
 
     return { port: Number(process.env.SERVER_PORT) }
   }
