@@ -9,7 +9,7 @@ export default class Config {
   }
 
   private loadEnviroment() {
-    dotenv.config({ path: `${process.cwd()}/etc/${process.env.ENV_FILE}` })
+    dotenv.config({ path: `${process.cwd()}/etc/${process.env.NODE_ENV}.env` })
   }
 
   private readServer() {

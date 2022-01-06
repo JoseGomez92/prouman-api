@@ -1,0 +1,8 @@
+services:
+  Shared.Config:
+    class: ../../modules/shared/infraestructure/Config
+    arguments: []
+
+  Shared.Logger:
+    class: ../../modules/shared/infraestructure/Log4jsLogger
+    arguments: []

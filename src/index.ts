@@ -1,9 +1,13 @@
 import express from 'express'
+import container from './dependency-injection'
+import Logger from './modules/shared/domain/Logger'
 import Config from './modules/shared/infraestructure/Config'
 
 const app: express.Express = express()
-const config = new Config()
+
+const config = container.get<Config>('Shared.Config')
+const logger = container.get<Logger>('Shared.Logger')
 
 app.listen(config.server.port, () => {
-  console.log(`Server running on port ${config.server.port}`)
+  logger.info(`Server is running on port ${config.server.port}`)
 })
